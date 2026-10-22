@@ -1,0 +1,30 @@
+name: CI Pipeline
+
+# Run on every push to main
+on:
+  push:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    # The backend lives in the task-manager-api/ folder of the repo
+    defaults:
+      run:
+        working-directory: task-manager-api
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run tests
+        run: npm test
