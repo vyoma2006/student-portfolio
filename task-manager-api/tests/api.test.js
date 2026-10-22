@@ -43,7 +43,7 @@ describe('GET /tasks', () => {
 
         const res = await request(app).get('/tasks').set(auth);
 
-        expect(res.statusCode).toBe(500);
+        expect(res.statusCode).toBe(200);
         expect(res.body.success).toBe(true);
         expect(res.body.count).toBe(1);
     });
