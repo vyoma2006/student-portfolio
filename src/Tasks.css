@@ -1,0 +1,324 @@
+/* All styles scoped under .tasks-page so they beat the generic
+   .page input / .page button / .page li rules in App.css */
+
+.page.tasks-page {
+    max-width: 760px;
+}
+
+/* ---------- Seed button ---------- */
+.tasks-page .seed-row {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+/* ---------- Task form ---------- */
+.tasks-page .task-form {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 28px;
+    background: var(--bg-2);
+    border: 1px solid var(--card-border);
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: var(--shadow);
+}
+
+.tasks-page .task-form input[type="text"] {
+    flex: 1 1 200px;
+    width: auto;
+    height: 44px;
+    margin: 0;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+}
+
+.tasks-page .task-form input[type="text"]:focus,
+.tasks-page .task-form select:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(22, 179, 163, 0.18);
+}
+
+.tasks-page .task-form select {
+    height: 44px;
+    padding: 0 14px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 14px;
+    color: var(--ink);
+    cursor: pointer;
+}
+
+.tasks-page .task-form button[type="submit"] {
+    height: 44px;
+    padding: 0 26px;
+    border-radius: 999px;
+    border: none;
+    background: var(--coral);
+    color: #fff;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--coral-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tasks-page .task-form button[type="submit"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.tasks-page .task-form button[type="submit"]:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--coral-dark);
+}
+
+.tasks-page .task-form button[type="submit"]:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ---------- Task list ---------- */
+.tasks-page .task-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tasks-page .task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 20px;
+    text-align: left;
+    background: var(--bg-2);
+    border: 1px solid var(--card-border);
+    border-radius: 14px;
+    box-shadow: 0 4px 12px rgba(28, 23, 48, 0.06);
+    transition: opacity 0.2s ease, transform 0.15s ease;
+}
+
+.tasks-page .task-item:hover {
+    transform: translateY(-2px);
+}
+
+.tasks-page .task-item.task-pending {
+    opacity: 0.55;
+}
+
+/* checkbox sits on the left, text beside it */
+.tasks-page .task-check {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    cursor: pointer;
+}
+
+.tasks-page .task-check input[type="checkbox"] {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    flex-shrink: 0;
+    accent-color: var(--teal);
+    cursor: pointer;
+}
+
+.tasks-page .task-title {
+    display: block;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 17px;
+    color: var(--ink);
+}
+
+.tasks-page .task-desc {
+    margin: 3px 0 0;
+    font-size: 13px;
+    line-height: 1.5;
+    color: var(--ink-soft);
+}
+
+.tasks-page .task-item.task-done .task-title {
+    text-decoration: line-through;
+    color: var(--ink-soft);
+}
+
+.tasks-page .task-item.task-done .task-desc {
+    opacity: 0.6;
+}
+
+/* right side: priority chip + delete, identical height */
+.tasks-page .task-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.tasks-page .task-meta .chip,
+.tasks-page .task-meta .btn-danger-sm {
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 16px;
+    border-radius: 999px;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    line-height: 1;
+    box-shadow: none;
+    border: none;
+}
+
+.tasks-page .task-meta .chip {
+    text-transform: capitalize;
+    cursor: default;
+}
+
+.tasks-page .task-meta .chip:hover {
+    transform: none;
+}
+
+.tasks-page .btn-danger-sm {
+    background: #ffe3e6;
+    color: var(--coral-dark);
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tasks-page .btn-danger-sm:hover:not(:disabled) {
+    background: var(--coral);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+.tasks-page .btn-danger-sm:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+.tasks-page .btn-ghost-sm {
+    height: 34px;
+    padding: 0 18px;
+    border-radius: 999px;
+    background: #fff;
+    color: var(--ink-soft);
+    border: 1px solid var(--card-border);
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: transform 0.15s ease;
+}
+
+.tasks-page .btn-ghost-sm:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.tasks-page .btn-ghost-sm:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ---------- Confirm dialog ---------- */
+.tasks-page .confirm-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(28, 23, 48, 0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.tasks-page .confirm-box {
+    background: #fff;
+    border-radius: 16px;
+    padding: 26px 28px;
+    max-width: 360px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+    text-align: center;
+}
+
+.tasks-page .confirm-box p {
+    margin: 0 0 18px;
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+.tasks-page .confirm-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+/* ---------- Toasts ---------- */
+.tasks-page .toast-stack {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 200;
+}
+
+.tasks-page .toast {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #fff;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    animation: toast-in 0.25s ease;
+}
+
+.tasks-page .toast-success {
+    background: var(--teal-dark);
+}
+
+.tasks-page .toast-error {
+    background: var(--coral-dark);
+}
+
+@keyframes toast-in {
+    from {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ---------- Small screens ---------- */
+@media (max-width: 600px) {
+    .tasks-page .task-item {
+        flex-wrap: wrap;
+    }
+
+    .tasks-page .task-meta {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

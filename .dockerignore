@@ -1,0 +1,8 @@
+# root/.dockerignore
+node_modules
+dist
+task-manager-api
+.git
+.env
+*.log
+.DS_Store

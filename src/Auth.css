@@ -1,0 +1,150 @@
+/* ---------- Login / Register ---------- */
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 440px;
+    background: var(--bg-2);
+    border: 1px solid var(--card-border);
+    border-radius: 18px;
+    padding: 32px 30px;
+    box-shadow: var(--shadow);
+}
+
+.auth-card h1 {
+    font-size: 28px;
+    text-align: center;
+    color: var(--ink);
+}
+
+.auth-sub {
+    text-align: center;
+    color: var(--ink-soft);
+    font-size: 14px;
+    margin: 6px 0 22px;
+}
+
+.auth-card form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth-card label {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--ink);
+}
+
+.auth-card input {
+    height: 46px;
+    padding: 0 16px;
+    border-radius: 12px;
+    border: 1px solid var(--card-border);
+    background: #fff;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-size: 15px;
+    color: var(--ink);
+}
+
+.auth-card input:focus {
+    outline: none;
+    border-color: var(--teal);
+    box-shadow: 0 0 0 3px rgba(22, 179, 163, 0.18);
+}
+
+.auth-card button[type="submit"] {
+    height: 46px;
+    margin-top: 4px;
+    border: none;
+    border-radius: 999px;
+    background: var(--coral);
+    color: #fff;
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    box-shadow: 0 4px 0 var(--coral-dark);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.auth-card button[type="submit"]:hover:not(:disabled) {
+    transform: translateY(-2px);
+}
+
+.auth-card button[type="submit"]:active:not(:disabled) {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 var(--coral-dark);
+}
+
+.auth-card button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.auth-error,
+.auth-notice {
+    border-radius: 10px;
+    padding: 11px 14px;
+    font-size: 14px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+.auth-error {
+    background: #fff3f4;
+    border: 1px solid #ffc7cd;
+    color: var(--coral-dark);
+}
+
+.auth-notice {
+    background: #fff9e6;
+    border: 1px solid #ffe49a;
+    color: #8a6100;
+}
+
+.auth-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    color: var(--ink-soft);
+}
+
+.auth-switch a {
+    color: var(--teal-dark);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.auth-switch a:hover {
+    text-decoration: underline;
+}
+
+/* ---------- Logout button in the nav (matches the nav links) ---------- */
+nav .nav-logout {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--coral-dark);
+    background: #fff3f4;
+    border: 1px solid #ffc7cd;
+    padding: 9px 20px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform 0.16s ease, background 0.16s ease, color 0.16s ease;
+}
+
+nav .nav-logout:hover {
+    transform: translateY(-2px);
+    background: var(--coral);
+    color: #fff;
+}
